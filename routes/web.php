@@ -14,7 +14,9 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get("/books", [UserController::class, "show"]);
+Route::get("/", [UserController::class, "home"]);
+Route::get("/login", [UserController::class, "login"]);
+Route::get("/books", [UserController::class, "books"]);
+Route::get("/find-books", [UserController::class, "findBooks"]);
+Route::get("/profile", [UserController::class, "showProfile"]);
+Route::get("/logout", [UserController::class, "logout"]);
