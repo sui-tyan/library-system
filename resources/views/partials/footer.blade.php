@@ -1,3 +1,3 @@
-
 </body>
+<x-footer/>
 </html>
