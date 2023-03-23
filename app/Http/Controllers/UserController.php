@@ -14,6 +14,20 @@ class UserController extends Controller
     public function login(){
         return view("user.login");
     }
+
+    public function authenticate(Request $req){
+        $validated=$req->validate([
+            'studentId'=>'required',
+            'password'=>'required'
+        ]);
+
+        if(auth()->attempt($validated)){
+            $req->session()->regenerate();
+            return redirect("/");
+        } else {
+            return redirect("/login");
+        }
+    }
     
     public function books(){
         return view("user.books");
